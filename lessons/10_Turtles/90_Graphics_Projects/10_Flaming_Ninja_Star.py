@@ -42,11 +42,11 @@ for i in range(25):
 
     t.forward(64) 
 
-    t.left(40) 
+    t.left(62) 
 
     t.forward(flameSize) 
 
-    t.right(170) 
+    t.right(200) 
 
     t.forward(flameSize) 
 

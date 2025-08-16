@@ -17,4 +17,10 @@ screen.bgcolor('white')
 
 t = turtle.Turtle()
 
-... # Your Code Here
+t.color("blue")
+
+for i in range(6):
+    t.forward(20)
+    t.right(60)
+
+turtle.exitonclick()   
