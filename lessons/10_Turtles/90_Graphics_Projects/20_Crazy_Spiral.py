@@ -8,6 +8,7 @@ in 14_FLaming_Ninja_Star.py, but use what you've learned about loops
 import turtle
 t = turtle.Turtle()
 turtle.setup(600,600,0,0) 
+t.speed(0)
 
 
 # 1) Complete make_a_shape() to make the turtle move in some pattern. 
@@ -15,6 +16,7 @@ turtle.setup(600,600,0,0)
 # then right 60 degrees, then forward 100 pixels. Make any shape you like.
 a = 3
 def make_a_shape(t):
+    global a
     """Make a shape with turtle t. Make it go left or right or forward"""    
     t.forward(a)
     t.right(360/num_shapes)
@@ -25,8 +27,10 @@ def make_a_shape(t):
 # The second ... in the for loop should be the number of shapes you want to make, 
 # for example 100, or it could use islice(), cycle(), or a list of numbers.
 
-num_shapes = 3
+num_shapes = 10
 
-for i in range(100):
+for i in range(650):
     make_a_shape(t)
     t.right(360/num_shapes)
+
+turtle.exitonclick()
