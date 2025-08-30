@@ -9,6 +9,19 @@ at the comments and the code snippets in the previous lessons, like
 
 """
 
+
+from tkinter import messagebox, simpledialog, Tk # import required modules
+
+window = Tk() 
+window.withdraw
+
+num1 = simpledialog.askinteger('first number', "enter a integer")
+num2 = simpledialog.askinteger('second number', "enter a integer")
+
+sum = num1
+
+messagebox.showinfo('the sum', num1 + num2)
+
 # Import the required modules
 
 # Create a window object
