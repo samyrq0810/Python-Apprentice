@@ -7,7 +7,7 @@ Then change it to make it draw a different pattern.
 import random
 import turtle
 
-
+"""
 # Returns a random color!
 def getRandomColor():
     return "#%06X" % (random.randint(0, 0xFFFFFF))
@@ -24,7 +24,7 @@ window = turtle.Screen()
 
 baseSize = 200  # the size of the black part of the star
 flameSize = 130  # the length of the flaming arms
-
+"""
 t = turtle.Turtle() 
 
 t.shape("turtle") 
@@ -32,7 +32,7 @@ t.shape("turtle")
 t.width(2) 
 
 t.speed(0) 
-
+"""
 for i in range(25):
     t.pencolor(getRandomColor())
 
@@ -59,3 +59,13 @@ for i in range(25):
 t.hideturtle() 
 
 turtle.done() 
+"""
+
+x = 10
+
+for i in range(2500):
+    t.forward(5)
+    t.right(x)
+    x = x + 0.05
+
+
