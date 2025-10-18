@@ -42,15 +42,28 @@ def ask_integer(prompt):
 
 
 # Pick the random number
+random_number = random.randint(1, 100)
 
 # In your loop:
-
+while True:
     # Get the user's guess
-
+    num = ask_integer("ENTER A NUMBER \n \n")
     # If the user's guess is divisible by 7, tell the user to start over
-
+    if num % 7 == 0:
+        print("\n YOUR GUESS WAS DIVISIBLE BY 7, START OVER \n")
+        break
     # If the user's guess is too high, tell the user
+    if num > random_number:
+        print("\n YOUR GUESS IS TOO HIGH \n")
+        
     # If the user's guess is too low, tell the user
+    if num < random_number:
+        print("\n YOUR GUESS IS TOO LOW \n")
+        
     # If the user's guess is correct, tell the user and break out of the loop
+
+    if num == random_number:
+        print("\n YOU WON!")
+        break
 
 
