@@ -39,11 +39,18 @@ def add_definition(db, key, value):
     If there are already 5 items in the database, an error message is displayed and the new item is not added.
     """
 
+    if len(db) >= 5:
+        app.info("error", "Cannot add more than 5 definitions.")
+        return
+
+
+
     # Check the limit
+
 
     # Set the item in the database
 
-    pass
+    
 
 
 def delete_definition(db, key):
