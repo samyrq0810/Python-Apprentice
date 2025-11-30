@@ -7,7 +7,7 @@ O_MARK = "O"
 # Implement check_row() and check_win() to allow the game to check if a player has won
 # IMPORTANT! In your code, you should use the constants X_MARK and O_MARK instead of the strings "x" and "o"
 
-def check_row(l):
+def check_row(row):
     """Check if a player won on a row
     Args:
         l: a 3 element iterable
@@ -15,7 +15,12 @@ def check_row(l):
     Returns:
         The winner's token ( x or o ) if there is one, otherwise None
         """
-
+            
+    if set(row) == {X_MARK}:
+        return X_MARK
+    elif set(row) == {O_MARK}:
+        return O_MARK
+    
     return None
 
 def check_win(board):
@@ -27,11 +32,31 @@ def check_win(board):
         The winner's token ( x or o ) if there is one, otherwise None
     """
 
+    for row in board:
+        row_win = check_row(row)
+
+        if row_win:
+            return row_win
+        
+    for column in zip(*board):
+        column_win = check_row(list(column))
+        
+        if column_win:
+            return column_win
+        
+    diagonals = [[ board[i][i] for i in range(3) ], [ board[i][2-i] for i in range(3) ]]
+
+    for diagonal in diagonals:
+        diagonal_win = check_row(diagonal)
+
+        if diagonal_win:
+            return diagonal_win
+
     return None
 
 # The following code is the main part of the program. It creates a GUI for the
 # game and handles the game logic. Implement the functions above first, then
-# after your program is working you can try chaning the code below. 
+# after your program is working you can try changing the code below. 
 
 class TicTacToe:
     """A Simple Tic Tac Toe game"""
@@ -47,7 +72,7 @@ class TicTacToe:
     def __init__(self, win_func=check_win):
         self.board = None # The stoage for user's markers
         
-        self.app = App('Tic Tac Toe Game', bg='burlywood')
+        self.app = App('Tic Tac Toe Game', bg="#b3b7b4")
         self.board_pane = Box(self.app, layout='grid') # Holds UI elements for the board     
         self.message = Text(self.app, text="It is your turn, " + self.current_turn)
 
