@@ -72,13 +72,13 @@ class TicTacToe:
     def __init__(self, win_func=check_win):
         self.board = None # The stoage for user's markers
         
-        self.app = App('Tic Tac Toe Game', bg="#b3b7b4")
+        self.app = App('Tic Tac Toe Game', bg="#050505")
         self.board_pane = Box(self.app, layout='grid') # Holds UI elements for the board     
         self.message = Text(self.app, text="It is your turn, " + self.current_turn)
 
         self.reset_button = PushButton(self.app, text='Reset', command=self.reset)
 
-        self.message.text_color = "green"
+        self.message.text_color = "white"
 
         self.win_func = win_func
 
