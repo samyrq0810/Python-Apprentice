@@ -3,7 +3,7 @@ if needed later on, check in rooms are in this order: [room type, number of days
 """
 
 import random
-from guizero import App, Text, PushButton, Slider, Box
+from guizero import *
 
 roomStandardNum = 0
 roomLuxuryNum = 0
@@ -72,11 +72,39 @@ def build_suite(money):
         roomSuiteNum = roomSuiteNum + 1
         money = money - 4000
 
-app = App(title = "hotel management", layout = "grid")
-standardBox = Box(app, border = True, grid = [0,0])
-standard_room = Text(standardBox, text="number of standard rooms")
-luxury_room = Text(app, text="number of luxury rooms", grid = [1,0])
+app = App(title="Hotel Management", layout="grid", height=400, width=400)
 
-luxuryBox = Box(app, border = True, grid = [3,0])
+box1 = Box(app, width=100, height=300, grid=[0,0], border=True)
+box2 = Box(app, width=100, height=300, grid=[1,0], border=True)
+box3 = Box(app, width=100, height=300, grid=[2,0], border=True)
+box4 = Box(app, width=100, height=300, grid=[3,0], border=True)
+
+box5 = Box(app, width=400, height=100, grid=[0,0], border=True)
+box6 = Box(app, width=400, height=100, grid=[0,1], border=True)
+box7 = Box(app, width=400, height=100, grid=[0,2], border=True)
+
+
 app.display()
 
+
+
+class Room:
+    def __init__(self, cost:int, roomNumber:int):
+        """Initializes a new Person object."""
+        self.cost = cost
+        self.isAvailable = True
+        self.roomNumber = roomNumber
+        self.guestName = ""
+        self.numDays = 0
+    def book(self, guestName:str, numDays:int):
+        self.isAvaible = False
+        self.numDays = numDays
+        print(f"{guestName} has booked room number {self.roomNumber} for {numDays} days")
+
+
+
+room1 = Room(125, 101)
+room2 = Room(125, 102)
+room3 = Room(125, 103)
+
+room1.book("Nick", "3")
