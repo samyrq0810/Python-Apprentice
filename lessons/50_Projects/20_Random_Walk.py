@@ -42,8 +42,9 @@ def random_walk(walker, steps):
     # or randomly choosing a angle to turn. You can use random.choice() to select a random element
     # from a list, like this: 
     # direction = random.choice(["N", "E", "S", "W"])
+    while True:
     # or
-    # angle = random.choice([0, 90, 180, 270])
+        angle = random.choice([0, 90, 180, 270])
     #
     # Or you can use random.randint() to generate a random integer between two values, like this:
     # angle_index = random.randint(0, 4)
@@ -61,10 +62,13 @@ def random_walk(walker, steps):
 
     # Your code here
 
+        walker.right(angle)
+        walker.forward(steps)
+
 
 
 # Start the random walk
-random_walk(walker, 200)
+random_walk(walker, 10)
 
 # Close the turtle window on click
 screen.exitonclick()

@@ -7,18 +7,9 @@ if needed later on, check in rooms are in this order: [room type, number of days
 from guizero import *
 import time
 
-bank = 50000
+bank = 67
 numOfEmptyRoom = 25
-x = 0
-days = 0
 
-while x < 10:
-    last_time = time.time
-
-    if time.time() - last_time > 5:
-        days = days + 1
-        last_time = time.time()
-        x = x + 1
     
 
 
@@ -43,45 +34,68 @@ class Room:
         bank = bank + numDays * self.cost
         self.guestName = guestName
         numOfEmptyRoom = numOfEmptyRoom - 1
-        print(f"{self.guestName} has booked room number {self.roomNumber} for {numDays} days")
+        print(f"{self.guestName} has booked room number {self.roomNumber} for {numDays} days.")
 
     def checkout(self):
-        global days
-        while days < self.numDays:
-            pass
+        global numOfEmptyRoom
+        last_time = time.time()
+        days = 0
 
-        print(f"{self.guestName} has check out of room number {self.roomNumber}")
-        self.isAvailable = True
+        while days < self.numDays:
+            if time.time() - last_time > 5:
+                days = days + 1
+                last_time = time.time()
+
         numOfEmptyRoom = numOfEmptyRoom + 1
+
+        print(f"{self.guestName} is checked out of room number {self.roomNumber}.")
+
+
+
+
+
 
 
 rooms = [Room(125, i + 1) for i in range(25)]
 
+print("Asdf")
+
+rooms[0].book("zxc",1)
+print(bank)
+print(numOfEmptyRoom)
+rooms[1].book("jh",2)
+print(bank)
+print(numOfEmptyRoom)
+rooms[2].book("sd",3)
+print(bank)
+print(numOfEmptyRoom)
+rooms[3].book("dgh",4)
+print(bank)
+print(numOfEmptyRoom)
+rooms[4].book("ew",5)
+print(bank)
+print(numOfEmptyRoom)
+rooms[5].book("qw",6)
 
 
 
-app = App(title="Hotel Management", layout="grid", height=400, width=400)
-
-box1 = Box(app, width=200, height=100, grid=[0,0], border=True)
-box2 = Box(app, width=200, height=100, grid=[1,0], border=True)
-
-numOfEmptyRooms = Text(box1, text=f"Number of empty rooms: {numOfEmptyRoom}")
-
-
-
-rooms[1].book("zxc",1)
-rooms[2].book("jh",2)
-rooms[3].book("sd",3)
-rooms[4].book("dgh",4)
-rooms[5].book("ew",5)
-rooms[6].book("qw",6)
-
-
-
-
-
+rooms[0].checkout()
+print(numOfEmptyRoom)
+rooms[1].checkout()
+print(numOfEmptyRoom)
+rooms[2].checkout()
+print(numOfEmptyRoom)
+rooms[3].checkout()
+print(numOfEmptyRoom)
+rooms[4].checkout()
+print(numOfEmptyRoom)
+rooms[5].checkout()
+print(numOfEmptyRoom)
 
 app.display()
+
+
+
 
 
 
